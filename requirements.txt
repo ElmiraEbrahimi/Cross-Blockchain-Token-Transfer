@@ -1,0 +1,3 @@
+Django==4.1.7
+py-solc-x==1.1.1
+git+https://github.com/ethereum/web3.py.git
