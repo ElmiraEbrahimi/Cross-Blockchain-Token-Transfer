@@ -1,13 +1,19 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cross Token</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block body %}
+    <h2 class="text-center mt-2 mb-5">Cross Token Project</h2>
+    <div class="container w-25 mb-1 mt-5">
+        <h4 class="text-center mt-1 mb-2">Pages</h4>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="{% url 'admin-panel' %}">Admin</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'alice' %}">Alice</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'bob' %}">Bob</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
