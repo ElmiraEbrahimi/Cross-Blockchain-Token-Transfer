@@ -16,9 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from cross_token.core import views
+from core import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('admin-panel/', views.admin, name='admin-panel'),
+    path('alice/', views.alice, name='alice'),
+    path('bob/', views.bob, name='bob'),
+
+    path('init-eth/', views.init_eth, name='init_eth'),
+    path('init-bsc/', views.init_bsc, name='init_bsc'),
+    path('transfer-eth/', views.transfer_eth, name='transfer_eth'),
+    path('transfer-bsc/', views.transfer_bsc, name='transfer_bsc'),
+
+    path('alice-burn/', views.alice_burn, name='alice_burn'),
+
     path('admin/', admin.site.urls),
 ]
