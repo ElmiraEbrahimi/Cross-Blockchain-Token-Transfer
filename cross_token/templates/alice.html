@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h4 class="text-center">Alice's Page</h4>
+    <div class="text-center mt-5 mb-3">
+        Current Balance: {{ alice_balance }}
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <div>
+            <form class="form mt-2" method="POST" action="{% url 'alice_burn' %}">
+                {% csrf_token %}
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label class="ml-0" for="burn_value">Value:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-text" type="number" step="0.01" id="burn_value" name="burn_value">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="burn_bob_bsc_account">To Bob Account:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-text" type="text" id="burn_bob_bsc_account" name="burn_bob_bsc_account">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="burn_bsc_contract">BSC Contract:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-text" type="text" id="burn_bsc_contract" name="burn_bsc_contract">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md text-center">
+                        <button type="submit" class="btn btn-primary w-50">Burn</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
