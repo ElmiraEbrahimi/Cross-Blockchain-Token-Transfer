@@ -6,8 +6,8 @@
         Current Balance: {{ alice_balance }}
     </div>
 
-    <div class="d-flex justify-content-center">
-        <div>
+    <div>
+        <div class="d-flex justify-content-center">
             <form class="form mt-2" method="POST" action="{% url 'alice_burn' %}">
                 {% csrf_token %}
                 <div class="row mt-2">
@@ -40,6 +40,14 @@
                     </div>
                 </div>
             </form>
+        </div>
+        <div class="d-flex justify-content-center mt-4">Burn Events:</div>
+        <div class="d-flex justify-content-center mt-4">
+            <ul class="w-25">
+                {% for event in burn_events %}
+                    <li>{{ event }}</li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 

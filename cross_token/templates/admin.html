@@ -3,20 +3,45 @@
 {% block body %}
 
     <h4 class="text-center">Admin Page</h4>
-
     <div class="container">
+        <small>*Visit <a href="{% url 'admin:index' %}">admin/</a> to set provider urls and other variables.</small>
+        <ul>
+            <li>Is Contract Compiled: {% if is_compiled %}True{% else %}False{% endif %}</li>
+            <li>Is ETH Contract Deployed: {% if is_eth_deployed %}True{% else %}False{% endif %}</li>
+            <li>Is BSC Contract Deployed: {% if is_bsc_deployed %}True{% else %}False{% endif %}</li>
+        </ul>
+    </div>
+    <div class="container d-flex">
+        <form class="mx-1" method="POST" action="{% url 'compile_contract' %}">
+            {% csrf_token %}
+            <button class="btn btn-primary">Compile Contract</button>
+        </form>
+        <form class="mx-1" method="POST" action="{% url 'deploy_eth' %}">
+            {% csrf_token %}
+            <button class="btn btn-primary">Deploy ETH Contract</button>
+        </form>
+        <form class="mx-1" method="POST" action="{% url 'deploy_bsc' %}">
+            {% csrf_token %}
+            <button class="btn btn-primary">Deploy BSC Contract</button>
+        </form>
+    </div>
+    <div class="container">
+        <hr>
         <h3 class="mt-4"><b>ETH</b></h3>
         <div class="form-check mt-2">
             <form class="mb-4" method="post" action="{% url 'init_eth' %}">
                 {% csrf_token %}
-              
-                <button type="submit" class="btn btn-primary" {% if is_eth_init %}disabled{% else %}{% endif %}>Init
-                </button>
+                <div class="mt-5 mb-3">
+                    Total Supply: {{ eth_total_supply }}
+                </div>
+                <label for="eth_init_value">Value:</label>
+                <input class="form-text" type="number" step="1" id="eth_init_value" name="eth_init_value">
+                <button type="submit" class="btn btn-primary">Initialize</button>
             </form>
             <form class="mb-4" method="post" action="{% url 'transfer_eth' %}">
                 {% csrf_token %}
                 <label for="eth_transfer_value">Value:</label>
-                <input class="form-text" type="number" step="0.01" id="eth_transfer_value" name="eth_transfer_value">
+                <input class="form-text" type="number" step="1" id="eth_transfer_value" name="eth_transfer_value">
                 <label for="eth_transfer_address">To ETH Account:</label>
                 <input class="form-text" type="text" id="eth_transfer_address" name="eth_transfer_address">
                 <button type="submit" class="btn btn-primary">Transfer
@@ -28,23 +53,24 @@
     <div class="container">
         <h3 class="mt-4"><b>BSC</b></h3>
         <div class="form-check mt-2">
-            <form class="mb-4" method="post" action="{% url 'init_bsc' %}">
+            <form class="mb-4" method="POST" action="{% url 'init_bsc' %}">
                 {% csrf_token %}
-                <div>Initialized: {% if is_bsc_init %}True{% else %}False{% endif %}</div>
-                <button type="submit" class="btn btn-primary" {% if is_bsc_init %}disabled{% else %}{% endif %}>Start
-                    initialization
-                </button>
+                <div class="mt-5 mb-3">
+                    Total Supply: {{ bsc_total_supply }}
+                </div>
+                <label for="bsc_init_value">Value:</label>
+                <input class="form-text" type="number" step="1" id="bsc_init_value" name="bsc_init_value">
+                <button type="submit" class="btn btn-primary">Initialize</button>
             </form>
-            <form class="mb-4" method="post" action="{% url 'transfer_bsc' %}">
+            <form class="mb-4" method="POST" action="{% url 'transfer_bsc' %}">
                 {% csrf_token %}
                 <label for="bsc_transfer_value">Value:</label>
-                <input class="form-text" type="number" step="0.01" id="bsc_transfer_value" name="bsc_transfer_value">
+                <input class="form-text" type="number" step="1" id="bsc_transfer_value" name="bsc_transfer_value">
                 <label for="bsc_transfer_address">To BSC Account:</label>
                 <input class="form-text" type="text" id="bsc_transfer_address" name="bsc_transfer_address">
                 <button type="submit" class="btn btn-primary">Transfer
                 </button>
             </form>
         </div>
-        <hr>
     </div>
 {% endblock %}
