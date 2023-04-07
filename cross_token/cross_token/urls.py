@@ -24,6 +24,10 @@ urlpatterns = [
     path('alice/', views.alice, name='alice'),
     path('bob/', views.bob, name='bob'),
 
+    path('compile_contract/', views.compile_contract, name='compile_contract'),
+    path('deploy_eth/', views.deploy_eth, name='deploy_eth'),
+    path('deploy_bsc/', views.deploy_bsc, name='deploy_bsc'),
+
     path('init-eth/', views.init_eth, name='init_eth'),
     path('init-bsc/', views.init_bsc, name='init_bsc'),
     path('transfer-eth/', views.transfer_eth, name='transfer_eth'),
@@ -31,5 +35,5 @@ urlpatterns = [
 
     path('alice-burn/', views.alice_burn, name='alice_burn'),
 
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
 ]
