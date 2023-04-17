@@ -26,3 +26,19 @@
 `python manage.py migrate`
 
 If you get an error, delete the `migrations` folder and `db.sqlite3` and repeat these steps again.
+
+## Run
+
+Run two ganache instances.
+- run ganache on `localhost:7545`
+- run the command prompt as an administrator
+`ganache-cli -p 8545 --verbose`
+
+- run Django server:
+
+`cd cross_token`
+
+`python manage.py runserver`
+
+-Run event handler
+
