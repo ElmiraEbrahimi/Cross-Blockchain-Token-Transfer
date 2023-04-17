@@ -30,8 +30,11 @@ def compile_the_contract():
 
 
 def is_contract_compiled():
-    bc = load_local_bytecode()
-    abi = load_local_abi()
+    try:
+        bc = load_local_bytecode()
+        abi = load_local_abi()
+    except:
+        return False
     if all([bc, abi]):
         return True
     return False

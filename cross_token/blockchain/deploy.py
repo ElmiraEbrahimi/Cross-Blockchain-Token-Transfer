@@ -3,6 +3,7 @@ from blockchain.utils.get_w3 import get_w3_eth, get_w3_bsc
 from blockchain.utils.load_abi import load_local_abi
 from blockchain.utils.load_bytecode import load_local_bytecode
 from blockchain.utils.load_third_party import load_eth_third_party_address, load_bsc_third_party_address
+from core.models import Config
 
 
 def deploy_eth_contract():
@@ -10,7 +11,8 @@ def deploy_eth_contract():
     abi = load_local_abi()
     bytecode = load_local_bytecode()
     contract = w3.eth.contract(abi=abi, bytecode=bytecode)
-    account = w3.eth.accounts[0]
+    owner_account = Config.objects.get().owner_eth_address
+    account = owner_account
     w3.eth.default_account = account
     eth_third_party_address = load_eth_third_party_address()
 
@@ -28,7 +30,8 @@ def deploy_bsc_contract():
     abi = load_local_abi()
     bytecode = load_local_bytecode()
     contract = w3.eth.contract(abi=abi, bytecode=bytecode)
-    account = w3.eth.accounts[0]
+    owner_account = Config.objects.get().owner_bsc_address
+    account = owner_account
     w3.eth.default_account = account
     bsc_third_party_address = load_bsc_third_party_address()
 
