@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.decorators.csrf import csrf_exempt
 
 from core import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('admin-panel/', views.admin, name='admin-panel'),
+    path('owner/', views.owner, name='owner'),
     path('alice/', views.alice, name='alice'),
     path('bob/', views.bob, name='bob'),
 
@@ -34,6 +35,10 @@ urlpatterns = [
     path('transfer-bsc/', views.transfer_bsc, name='transfer_bsc'),
 
     path('alice-burn/', views.alice_burn, name='alice_burn'),
+
+    path('set_event_handler_status_true/', views.set_event_handler_status_true, name='set_event_handler_status_true'),
+    path('get_w3_and_contract_addresses/', views.get_w3_and_contract_addresses, name='get_w3_and_contract_addresses'),
+    path('submit_event/', csrf_exempt(views.submit_event), name='submit_event'),
 
     path('admin/', admin.site.urls, name='admin'),
 ]
