@@ -41,13 +41,15 @@
                 </div>
             </form>
         </div>
-        <div class="d-flex justify-content-center mt-4">Burn Events:</div>
-        <div class="d-flex justify-content-center mt-4">
-            <ul class="w-25">
-                {% for event in burn_events %}
-                    <li>{{ event }}</li>
-                {% endfor %}
-            </ul>
+        <div class="container">
+            <div class="d-flex  mt-4"><b>Burning Events:</b></div>
+            <div class="d-flex justify-content-center mt-4">
+                <ul class="w-100">
+                    {% for event in burn_events %}
+                        <li>({{ event.id }}) {{ event.payload }} ({{ event.created_at }})</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 

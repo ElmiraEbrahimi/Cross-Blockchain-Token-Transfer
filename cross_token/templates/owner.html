@@ -2,13 +2,11 @@
 
 {% block body %}
 
-    <h4 class="text-center">Admin Page</h4>
-    <div class="container">
-        <small>*Visit <a href="{% url 'admin:index' %}">admin/</a> to set provider urls and other variables.</small>
+    <h4 class="text-center">Owner Page</h4>
+    <div class="container mb-3">
         <ul>
             <li>Is Contract Compiled: {% if is_compiled %}True{% else %}False{% endif %}</li>
-            <li>Is ETH Contract Deployed: {% if is_eth_deployed %}True{% else %}False{% endif %}</li>
-            <li>Is BSC Contract Deployed: {% if is_bsc_deployed %}True{% else %}False{% endif %}</li>
+            <li>Event Handler: {% if event_handler_status %}Running{% else %}Stopped{% endif %}</li>
         </ul>
     </div>
     <div class="container d-flex">
@@ -26,14 +24,20 @@
         </form>
     </div>
     <div class="container">
+        <small>(visit <a href="{% url 'admin:index' %}">admin/</a> to set provider urls and other variables)</small>
+    </div>
+    <div class="container">
         <hr>
         <h3 class="mt-4"><b>ETH</b></h3>
         <div class="form-check mt-2">
             <form class="mb-4" method="post" action="{% url 'init_eth' %}">
                 {% csrf_token %}
-                <div class="mt-5 mb-3">
-                    Total Supply: {{ eth_total_supply }}
-                </div>
+                <ul class="mt-5 mb-3">
+                    <li>ETH Owner Account: {% if eth_owner %}{{ eth_owner }}{% else %}Not Set{% endif %}</li>
+                    <li>Is ETH Contract Deployed: {% if is_eth_deployed %}True{% else %}False{% endif %}</li>
+                    <li>Total Supply: {{ eth_total_supply }}</li>
+                    <li>Owner Balance: {{ eth_owner_balance }}</li>
+                </ul>
                 <label for="eth_init_value">Value:</label>
                 <input class="form-text" type="number" step="1" id="eth_init_value" name="eth_init_value">
                 <button type="submit" class="btn btn-primary">Initialize</button>
@@ -55,9 +59,12 @@
         <div class="form-check mt-2">
             <form class="mb-4" method="POST" action="{% url 'init_bsc' %}">
                 {% csrf_token %}
-                <div class="mt-5 mb-3">
-                    Total Supply: {{ bsc_total_supply }}
-                </div>
+                <ul class="mt-5 mb-3">
+                    <li>BSC Owner Account: {% if bsc_owner %}{{ bsc_owner }}{% else %}Not Set{% endif %}</li>
+                    <li>Is BSC Contract Deployed: {% if is_bsc_deployed %}True{% else %}False{% endif %}</li>
+                    <li>Total Supply: {{ bsc_total_supply }}</li>
+                    <li>Owner Balance: {{ bsc_owner_balance }}</li>
+                </ul>
                 <label for="bsc_init_value">Value:</label>
                 <input class="form-text" type="number" step="1" id="bsc_init_value" name="bsc_init_value">
                 <button type="submit" class="btn btn-primary">Initialize</button>

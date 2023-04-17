@@ -5,12 +5,15 @@
     <div class="text-center mt-5 mb-3">
         Current Balance: {{ bob_balance }}
     </div>
-    <div class="d-flex justify-content-center mt-4">Mint Events:</div>
-    <div class="d-flex justify-content-center mt-4">
-        <ul class="w-25">
-            {% for event in mint_events %}
-                <li>{{ event }}</li>
-            {% endfor %}
-        </ul>
+
+    <div class="container">
+        <div class="d-flex  mt-4"><b>Minting Events:</b></div>
+        <div class="d-flex justify-content-center mt-4">
+            <ul class="w-100">
+                {% for event in mint_events %}
+                    <li>({{ event.id }}) {{ event.payload }} ({{ event.created_at }})</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 {% endblock %}
