@@ -4,7 +4,7 @@
 
 ## Architecture
 <p align="center">
-  <img src="docs_imgs/architecture.png" width="600">
+  <img src="docs/architecture.png" width="600">
 </p>
 
 ## Prerequisites
