@@ -1,6 +1,12 @@
 # Cross-Blockchain-Token-Transfer
 
 ## Overview
+
+## Architecture
+<p align="center">
+  <img src="docs_imgs/architecture.png" width="600">
+</p>
+
 ## Prerequisites
 
 - Install [Python 3.11](https://www.python.org/downloads/)
