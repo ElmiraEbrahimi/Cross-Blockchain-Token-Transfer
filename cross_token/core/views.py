@@ -28,24 +28,24 @@ def owner(request):
     try:
         cf = ContractFunctions(is_bsc=False)
         eth_owner_balance = cf.balance_of(cf.owner_address)
-    except Exception:
-        eth_owner_balance = 'Error: Could not establish connection to ETH blockchain.'
+    except Exception as err:
+        eth_owner_balance = 'Error: Could not establish connection to ETH. ' + str(err)
     try:
         cf = ContractFunctions(is_bsc=True)
         bsc_owner_balance = cf.balance_of(cf.owner_address)
-    except Exception:
-        bsc_owner_balance = 'Error: Could not establish connection to BSC blockchain.'
+    except Exception as err:
+        bsc_owner_balance = 'Error: Could not establish connection to BSC. ' + str(err)
 
     try:
         cf = ContractFunctions(is_bsc=False)
         eth_total_supply = cf.total_supply_amount()
-    except Exception:
-        eth_total_supply = 'Error: Could not establish connection to ETH blockchain.'
+    except Exception as err:
+        eth_total_supply = 'Error: Could not establish connection to ETH. ' + str(err)
     try:
         cf = ContractFunctions(is_bsc=True)
         bsc_total_supply = cf.total_supply_amount()
-    except Exception:
-        bsc_total_supply = 'Error: Could not establish connection to BSC blockchain.'
+    except Exception as err:
+        bsc_total_supply = 'Error: Could not establish connection to BSC. ' + str(err)
 
     config = Config.objects.get()
     try:

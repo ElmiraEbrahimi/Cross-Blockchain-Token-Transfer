@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="396c6a45-7c01-4b46-88a8-1ed636abfa1f" name="Changes" comment="updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cross_token/core/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/cross_token/core/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cross_token/blockchain/deploy.py" beforeDir="false" afterPath="$PROJECT_DIR$/cross_token/blockchain/deploy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cross_token/blockchain/event_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/cross_token/blockchain/event_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cross_token/blockchain/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/cross_token/blockchain/functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cross_token/blockchain/utils/load_third_party.py" beforeDir="false" afterPath="$PROJECT_DIR$/cross_token/blockchain/utils/load_third_party.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cross_token/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cross_token/core/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +82,7 @@
       <updated>1681712310390</updated>
       <workItem from="1681712325669" duration="49000" />
       <workItem from="1681828075826" duration="5509000" />
-      <workItem from="1682085721262" duration="7196000" />
+      <workItem from="1682085721262" duration="11051000" />
     </task>
     <task id="LOCAL-00001" summary="updated">
       <created>1682167361208</created>
@@ -87,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682167361209</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="updated">
+      <created>1682168068802</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682168068802</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

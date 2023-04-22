@@ -2,11 +2,15 @@ import json
 
 import requests
 from web3 import Web3
-from utils.load_abi import load_local_abi
+
+from blockchain.utils.load_abi import load_local_abi
+
 
 def run_event_handler():
     submit_event_url = 'http://127.0.0.1:8000/submit_event/'
-    response = requests.get('http://127.0.0.1:8000/get_w3_and_contract_addresses/')
+    response = requests.get('http://127.0.0.1:8000/get_w3_and_contract_addresses/', timeout=200)
+    print(response)
+    print(response.text)
     data = response.json()
 
     eth_w3_url = data['eth_w3_url']
