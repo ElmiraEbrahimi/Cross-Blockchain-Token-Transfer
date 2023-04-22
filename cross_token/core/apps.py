@@ -19,7 +19,7 @@ class CoreConfig(AppConfig):
                 config = Config.objects.create()
 
             config = Config.objects.get()
-            config.eth_third_party_address = '0x0018F54640da144734eC12429060dF555cbe325F'  # some random address
+            config.eth_third_party_pk = '0x0018F54640da144734eC12429060dF555cbe325F'  # some random address
             config.event_handler_status = False
             config.save()
 
