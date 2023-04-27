@@ -31,6 +31,7 @@ def get_w3_eth():
 
 
 def get_w3_bsc():
+    # bsc_url = load_bsc_url()
     bsc_url = Config.objects.get().bsc_url
     instance = Web3(Web3.HTTPProvider(bsc_url))
     assert instance.is_connected()

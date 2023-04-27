@@ -236,13 +236,10 @@ def alice_burn(request):
 
 def get_w3_and_contract_addresses(request):
     cf = Config.objects.get()
-    print(1)
     eth_w3_url = cf.eth_url
     bsc_w3_url = cf.bsc_url
-    print(2)
     eth_contract_address = cf.deployed_eth_contract_address
     bsc_contract_address = cf.deployed_bsc_contract_address
-    print(3)
     return JsonResponse(
         {
             'eth_w3_url': eth_w3_url,

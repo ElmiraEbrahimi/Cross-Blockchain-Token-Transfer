@@ -1,4 +1,5 @@
 import binascii
+
 from eth_account import Account
 
 from blockchain.utils.contract_tools import save_bsc_contract_address, save_eth_contract_address
